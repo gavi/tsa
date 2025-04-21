@@ -3,3 +3,26 @@ description:
 globs:
 alwaysApply: false
 ---
+# TSA Data Patterns and Update Logic
+
+## Data Sources
+- Historical data (2019-previous year): https://www.tsa.gov/travel/passenger-volumes/YYYY
+- Current year data: https://www.tsa.gov/travel/passenger-volumes
+
+## Update Patterns
+The [tsa_scraper.py](mdc:tsa_scraper.py) follows these rules:
+1. For historical years: Data is relatively static, full download
+2. For current year: 
+   - Checks existing file
+   - Only updates with new/changed data
+   - Preserves historical records
+
+## Data Format
+CSV files follow this structure:
+```
+Date,Passengers
+MM/DD/YYYY,NUMBER
+```
+- Dates are parsed using datetime.strptime with '%m/%d/%Y' format
+- Passenger numbers are stored as integers
+- No header row in source table, added during processing

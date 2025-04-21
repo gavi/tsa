@@ -3,3 +3,24 @@ description:
 globs:
 alwaysApply: false
 ---
+# TSA Data Analysis Project Structure
+
+This project consists of two main Python scripts and supporting files:
+
+## Core Scripts
+- [tsa_scraper.py](mdc:tsa_scraper.py): Main script for scraping TSA passenger volume data. Handles both historical data (2019 onwards) and current year data differently. Creates/updates CSV files for each year.
+- [tsa_visualizer.py](mdc:tsa_visualizer.py): Visualization script that generates three different plots from the collected data.
+
+## Supporting Files
+- [requirements.txt](mdc:requirements.txt): Lists all Python package dependencies
+- [README.md](mdc:README.md): Project documentation and usage instructions
+
+## Data Files
+- CSV files are generated in the format `tsa_passengers_YYYY.csv` where YYYY is the year
+- Each CSV contains daily passenger counts with Date and Passengers columns
+
+## Generated Visualizations
+The visualizer creates three PNG files:
+- tsa_daily_trends.png: Shows raw passenger volumes over time
+- tsa_monthly_averages.png: Shows monthly patterns
+- tsa_weekly_patterns.png: Shows day-of-week patterns
